@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Remove
+Type = Package
+Target = bilibili-thread-ripper-linux-git
+
+[Action]
+Description = Restoring the original bilibili client...
+When = PreTransaction
+Exec = /usr/lib/bilibili-thread-ripper/btr-patch restore

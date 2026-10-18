@@ -1,0 +1,4 @@
+#!/bin/sh
+# Runs patch.cjs with the client's own Electron as Node, so nodejs is not needed at run time.
+# Usage: btr-patch patch|restore|status
+ELECTRON_RUN_AS_NODE=1 exec electron43 "$(dirname "$(readlink -f "$0")")/patch.cjs" "$@"

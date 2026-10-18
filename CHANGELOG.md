@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+- Linux：新增哔哩哔哩 Linux 客户端（AUR `bilibili-bin`）版，见 `linux/README.md`。补丁由 pacman 钩子在客户端安装、升级后自动打上，卸载时恢复官方文件。
+
 ## [2026.10.17.1] - 2026-10-17
 
 ### 修复

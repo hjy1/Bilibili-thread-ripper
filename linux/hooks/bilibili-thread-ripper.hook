@@ -1,0 +1,18 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = bilibili
+Target = bilibili-bin
+
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = bilibili-thread-ripper-linux-git
+
+[Action]
+Description = Applying Bilibili Thread Ripper to the bilibili client...
+When = PostTransaction
+Exec = /usr/lib/bilibili-thread-ripper/btr-patch patch

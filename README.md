@@ -28,6 +28,9 @@
 > 如果 BTR 帮到了你，欢迎分享给同样在海外看 B 站的朋友，也可以给项目点个 Star ⭐，让更多人看到它。
 
 > [!TIP]
+> 用 Linux 上的哔哩哔哩客户端（AUR `bilibili-bin`）？看 [linux/README.md](linux/README.md)，装好后随 paru 一起更新。
+
+> [!TIP]
 > 想在手机或平板上用？可以试试把 BTR 移植进 PiliPlus 客户端的第三方项目：[nishuodedui1145-del/PiliPlus](https://github.com/nishuodedui1145-del/PiliPlus)、[lemonteaau/PiliPlus](https://github.com/lemonteaau/PiliPlus)。它们由社区独立维护，效果不做保证。
 
 ## 为什么需要它

@@ -15,3 +15,9 @@ Thumbs.db
 Desktop.ini
 *.log
 
+
+# Linux 版 makepkg 的产物
+/linux/src/
+/linux/pkg/
+/linux/Bilibili-thread-ripper/
+/linux/*.pkg.tar.*

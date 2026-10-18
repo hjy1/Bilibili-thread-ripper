@@ -1,0 +1,42 @@
+# Maintainer: Jiayou He <joure5501@gmail.com>
+# BTR for the Linux Bilibili client. Builds from the linux-desktop branch; with paru's Devel
+# option (on by default in /etc/paru.conf) every `paru` picks up new commits on that branch.
+pkgname=bilibili-thread-ripper-linux-git
+_repo=Bilibili-thread-ripper
+pkgver=2026.10.17.1.r0.g0000000
+pkgrel=1
+pkgdesc="Bilibili Thread Ripper (BTR) for the Linux Bilibili client: multi-CDN, multi-range downloads"
+arch=('any')
+url="https://github.com/hjy1/Bilibili-thread-ripper"
+license=('MIT')
+depends=('bilibili' 'electron43')
+makedepends=('git' 'nodejs')
+source=("git+${url}.git#branch=linux-desktop")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$_repo"
+  local base
+  base=$(sed -n 's/^## \[\([0-9][0-9.]*\)\].*/\1/p' CHANGELOG.md | head -1)
+  printf '%s.r%s.g%s' "$base" "$(git rev-list --count HEAD)" "$(git rev-parse --short=7 HEAD)"
+}
+
+build() {
+  cd "$_repo"
+  node linux/build.mjs "$srcdir/out"
+}
+
+check() {
+  cd "$_repo"
+  node dev/linux-patch-test.js
+}
+
+package() {
+  cd "$_repo"
+  install -d "$pkgdir/usr/lib/bilibili-thread-ripper/payload"
+  install -m644 "$srcdir"/out/patch.cjs "$srcdir"/out/asar.cjs "$pkgdir/usr/lib/bilibili-thread-ripper/"
+  install -m755 "$srcdir/out/btr-patch" "$pkgdir/usr/lib/bilibili-thread-ripper/"
+  install -m644 "$srcdir"/out/payload/* "$pkgdir/usr/lib/bilibili-thread-ripper/payload/"
+  install -Dm644 -t "$pkgdir/usr/share/libalpm/hooks" linux/hooks/*.hook
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

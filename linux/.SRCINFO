@@ -1,0 +1,15 @@
+pkgbase = bilibili-thread-ripper-linux-git
+	pkgdesc = Bilibili Thread Ripper (BTR) for the Linux Bilibili client: multi-CDN, multi-range downloads
+	pkgver = 2026.10.17.1.r0.g0000000
+	pkgrel = 1
+	url = https://github.com/hjy1/Bilibili-thread-ripper
+	arch = any
+	license = MIT
+	makedepends = git
+	makedepends = nodejs
+	depends = bilibili
+	depends = electron43
+	source = git+https://github.com/hjy1/Bilibili-thread-ripper.git#branch=linux-desktop
+	sha256sums = SKIP
+
+pkgname = bilibili-thread-ripper-linux-git
